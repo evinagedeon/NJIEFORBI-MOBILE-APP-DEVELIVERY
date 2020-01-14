@@ -17,21 +17,9 @@
          
 
 
-#### App Demo
-      Use Ionic View to see the demo of the app: http://view.ionic.io/
-      View Id: 272277d5
-
 #### Comming Soon ( Ah...not very soon!)
       1. Backend for Processing Orders.
       2. Favourates Page.
       3. Offers Page.
       4. Facebook Login.
-
-
-## Donate
-**Bitcoin Adddress**: `1KprXNR7gDHMDUftLnHQWKdpArM2dq3Q5g`
-
-or
-
-**Paypal**:  [paypal.me/arjunsk](https://www.paypal.me/arjunsk/5) 
 
