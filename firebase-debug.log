@@ -1,0 +1,86 @@
+[debug] [2019-12-18T14:18:48.115Z] ----------------------------------------------------------------------
+[debug] [2019-12-18T14:18:48.124Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\user\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2019-12-18T14:18:48.125Z] CLI Version:   7.10.0
+[debug] [2019-12-18T14:18:48.125Z] Platform:      win32
+[debug] [2019-12-18T14:18:48.125Z] Node Version:  v12.13.0
+[debug] [2019-12-18T14:18:48.210Z] Time:          Wed Dec 18 2019 15:18:48 GMT+0100 (GMT+01:00)
+[debug] [2019-12-18T14:18:48.210Z] ----------------------------------------------------------------------
+[debug] [2019-12-18T14:18:48.210Z] 
+[debug] [2019-12-18T14:18:48.228Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-18T14:18:48.230Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\user\Desktop\gedeon\ionic\ionicshopfireb2
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project.
+[debug] [2019-12-18T14:19:34.577Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-18T14:19:34.578Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-18T14:19:35.462Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:35.516Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+
+[debug] [2019-12-18T14:19:37.839Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:37.844Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5162125315865639038  
+ 
+[debug] [2019-12-18T14:19:39.922Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:40.424Z] [Project Creation Poller] Retrying task index 0
+[debug] [2019-12-18T14:19:40.425Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5162125315865639038  
+ 
+[debug] [2019-12-18T14:19:42.520Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:43.523Z] [Project Creation Poller] Retrying task index 0
+[debug] [2019-12-18T14:19:43.523Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5162125315865639038  
+ 
+[debug] [2019-12-18T14:19:45.655Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:45.658Z] >>> HTTP REQUEST POST https://firebase.googleapis.com/v1beta1/projects/fisthosting:addFirebase  
+ 
+[debug] [2019-12-18T14:19:48.100Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:48.102Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZGM0MjY3MjAtMTgxMy00YjRiLTk1OTMtYWVhZTFlMjI3YTgw  
+ 
+[debug] [2019-12-18T14:19:49.030Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:49.533Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2019-12-18T14:19:49.533Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZGM0MjY3MjAtMTgxMy00YjRiLTk1OTMtYWVhZTFlMjI3YTgw  
+ 
+[debug] [2019-12-18T14:19:50.444Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:51.546Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2019-12-18T14:19:51.546Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZGM0MjY3MjAtMTgxMy00YjRiLTk1OTMtYWVhZTFlMjI3YTgw  
+ 
+[debug] [2019-12-18T14:19:52.646Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:54.648Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2019-12-18T14:19:54.652Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZGM0MjY3MjAtMTgxMy00YjRiLTk1OTMtYWVhZTFlMjI3YTgw  
+ 
+[debug] [2019-12-18T14:19:55.540Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-18T14:19:59.541Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2019-12-18T14:19:59.541Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZGM0MjY3MjAtMTgxMy00YjRiLTk1OTMtYWVhZTFlMjI3YTgw  
+ 
+[debug] [2019-12-18T14:20:00.337Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Your Firebase project is ready! ===
+[info] 
+[info] Project information:
+[info]    - Project ID: fisthosting
+[info]    - Project Name: fisthosting
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/fisthosting/overview
+[info] i  Using project fisthosting (fisthosting)
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
