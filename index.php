@@ -9,6 +9,23 @@ require_once 'includes/functions.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUCOCHER - Réseau Commercial</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#007bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LUCOCHER">
+    <meta name="msapplication-TileImage" content="assets/images/icon-144.png">
+    <meta name="msapplication-TileColor" content="#007bff">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/images/icon-512.png">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
@@ -185,5 +202,52 @@ require_once 'includes/functions.php';
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <!-- PWA Installation Script -->
+    <script>
+        // Enregistrer le service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('Service Worker enregistré avec succès:', registration.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('Échec de l\'enregistrement du Service Worker:', error);
+                    });
+            });
+        }
+
+        // Gestion de l'installation PWA
+        let deferredPrompt;
+        const installButton = document.createElement('button');
+        installButton.textContent = '📱 Installer l\'App';
+        installButton.className = 'btn btn-success position-fixed bottom-0 end-0 m-3';
+        installButton.style.display = 'none';
+        installButton.style.zIndex = '1000';
+        document.body.appendChild(installButton);
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+        });
+
+        installButton.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`Installation: ${outcome}`);
+                deferredPrompt = null;
+                installButton.style.display = 'none';
+            }
+        });
+
+        // Masquer le bouton si l'app est déjà installée
+        window.addEventListener('appinstalled', () => {
+            installButton.style.display = 'none';
+            console.log('LUCOCHER PWA installée!');
+        });
+    </script>
 </body>
 </html>
