@@ -74,6 +74,10 @@ if ($is_business) {
 
 // Notifications non lues
 $notifications = getUnreadNotifications($_SESSION['user_id'], $pdo, 5);
+// S'assurer que $notifications est toujours un tableau
+if (!is_array($notifications)) {
+    $notifications = [];
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">

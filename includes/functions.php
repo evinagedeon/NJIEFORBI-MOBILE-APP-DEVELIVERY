@@ -139,14 +139,25 @@ function getCartCount($user_id, $pdo) {
 
 // Obtenir les notifications non lues
 function getUnreadNotifications($user_id, $pdo, $limit = 5) {
-    $stmt = $pdo->prepare("
-        SELECT * FROM notifications 
-        WHERE user_id = ? AND is_read = FALSE 
-        ORDER BY created_at DESC 
-        LIMIT ?
-    ");
-    $stmt->execute([$user_id, $limit]);
-    return $stmt->fetchAll();
+    try {
+        // Valider et sécuriser la limite
+        $limit = (int) $limit;
+        if ($limit <= 0 || $limit > 100) {
+            $limit = 5;
+        }
+        
+        $stmt = $pdo->prepare("
+            SELECT * FROM notifications 
+            WHERE user_id = ? AND is_read = FALSE 
+            ORDER BY created_at DESC 
+            LIMIT " . $limit
+        );
+        $stmt->execute([$user_id]);
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        logError("Erreur getUnreadNotifications: " . $e->getMessage());
+        return []; // Retourner un tableau vide en cas d'erreur
+    }
 }
 
 // Marquer une notification comme lue
@@ -315,9 +326,19 @@ function sendEmail($to, $subject, $message, $from = 'noreply@lucocher.com') {
 
 // Logger les erreurs
 function logError($message, $file = 'error.log') {
-    $timestamp = date('Y-m-d H:i:s');
-    $log_message = "[$timestamp] $message" . PHP_EOL;
-    error_log($log_message, 3, "logs/$file");
+    try {
+        // Créer le répertoire logs s'il n'existe pas
+        if (!is_dir('logs')) {
+            mkdir('logs', 0755, true);
+        }
+        
+        $timestamp = date('Y-m-d H:i:s');
+        $log_message = "[$timestamp] $message" . PHP_EOL;
+        error_log($log_message, 3, "logs/$file");
+    } catch (Exception $e) {
+        // En cas d'erreur de logging, utiliser le log système
+        error_log("LUCOCHER Error: $message");
+    }
 }
 
 // Pagination
